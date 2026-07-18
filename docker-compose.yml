@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: food-court-finds-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: fcf_user
+      POSTGRES_PASSWORD: fcf_password
+      POSTGRES_DB: food_court_finds
+    ports:
+      - "5432:5432"
+    volumes:
+      - fcf_pgdata:/var/lib/postgresql/data
+
+volumes:
+  fcf_pgdata:
